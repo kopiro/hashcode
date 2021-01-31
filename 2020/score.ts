@@ -44,6 +44,6 @@ export async function calculateScore(name: string): Promise<number> {
 }
 
 (async () => {
-  const score = await calculateScore("a_example");
+  const score = await calculateScore("z_lukas");
   console.log("score", score);
 })();
