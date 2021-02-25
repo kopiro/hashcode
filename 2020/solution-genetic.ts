@@ -8,7 +8,6 @@ type LibGenetic = Lib & {
 
 async function solve(name: string) {
   const input = await parseInput(name);
-  let TIME = 0;
   const POPULATION_SIZE = 10;
 
   const libs: Map<number, LibGenetic> = new Map();

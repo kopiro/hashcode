@@ -19,7 +19,7 @@ export type LibSolution = {
   bookIds: number[];
 };
 
-export async function parseSolution(name) {
+export async function parseSolution(name: string) {
   const data = await readSolution(name);
   const numLibs = Number(data.shift());
   const libs: LibSolution[] = [];
@@ -35,13 +35,13 @@ export async function parseSolution(name) {
   return libs;
 }
 
-export async function parseInput(name) {
+export async function parseInput(name: string) {
   const data = await readInput(name);
 
   const libsMap: Map<number, Lib> = new Map();
   const booksMap: Map<number, Book> = new Map();
 
-  const [_, numLibs, numDays] = data.shift().split(" ").map(Number);
+  const [, numLibs, numDays] = data.shift().split(" ").map(Number);
   data
     .shift()
     .split(" ")
