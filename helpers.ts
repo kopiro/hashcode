@@ -1,26 +1,24 @@
 import fs from "fs";
 import path from "path";
 
-const YEAR = (process.env.YEAR || new Date().getUTCFullYear()).toString();
-
-export async function readInput(name: string) {
+export async function readInput(year: string, name: string) {
   const content = await fs.promises.readFile(
-    path.join(YEAR, "input", `${name}.txt`),
+    path.join(year, "input", `${name}.txt`),
     "utf8"
   );
   return content.split("\n");
 }
 
-export async function readSolution(name: string) {
+export async function readSolution(year: string, name: string) {
   const content = await fs.promises.readFile(
-    path.join(YEAR, "output", `${name}.txt`),
+    path.join(year, "output", `${name}.txt`),
     "utf8"
   );
   return content.split("\n");
 }
 
-export async function writeSolution(name: string, data: string) {
-  return fs.promises.writeFile(path.join(YEAR, "output", `${name}.txt`), data);
+export async function writeSolution(year: string, name: string, data: string) {
+  return fs.promises.writeFile(path.join(year, "output", `${name}.txt`), data);
 }
 
 /**
